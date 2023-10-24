@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"cd ./Routes_Controllers && npm start\" \"cd ./websocket-game && npm run dev\"",
-    "install": "concurrently \"cd ./Routes_Controllers && npm install\" \"cd ./websocket-game && install\"",
+    "install": "concurrently \"cd ./Routes_Controllers && npm install\" \"cd ./websocket-game && npm install\"",
     "dev": "concurrently \"cd ./Routes_Controllers && npm run dev\" \"cd ./websocket-game && npm run dev\""
   },
   "keywords": [],
