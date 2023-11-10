@@ -1,3 +1,3 @@
 # React-Websocket-Game
- 
-This should be run as TWO servers, in each of the subfolders.
+
+link: (morpline.github.io/React-Websocket-Game/dist){morpline.github.io/React-Websocket-Game/dist}
