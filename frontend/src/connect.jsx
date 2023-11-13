@@ -22,7 +22,7 @@ let recievedData = {};
 const Connect = () => {
     //Public API that will echo messages sent to it back to the client
     // console.log(useState("e"));
-    const [socketUrl, setSocketUrl] = useState('ws://rwg.onrender.com/');
+    const [socketUrl, setSocketUrl] = useState('wss://rwg.onrender.com/');
     const [menuState, setMenuState] = useState('menu');
     const [messageHistory, setMessageHistory] = useState([]);
     const [message, setMessage] = useState("");
