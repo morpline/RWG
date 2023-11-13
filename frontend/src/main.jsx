@@ -11,11 +11,11 @@ import Connect from './connect.jsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/RWG/",
     element: <App/>,
   },
   {
-    path: "/play",
+    path: "/RWG/play",
     element: <Connect/>,
   },
 ]);
