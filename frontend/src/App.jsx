@@ -56,7 +56,7 @@ function App() {
       <>
         <div className="section">
           <button onClick={handlePlay}>save</button>
-          <a href="/play">play</a>
+          <a href="/RWG/play">play</a>
         </div>
       </>
     )
