@@ -6,7 +6,7 @@ const constantData = {
         },
         {
             name: "helmet",
-            description: "Protects the head. Damage dealt increased 20%, damage taken increased 10%",
+            description: "Protects the head. Damage dealt increased 20%, damage taken increased 20%",
         },
         {
             name: "gloves",
@@ -19,7 +19,9 @@ const constantData = {
         "dagger",
         "laserrifle",
         "shotgun",
-        "iron mace"
+        "iron mace",
+        "warhammer",
+        "apple"
     ],
     weapons:{
         "revolver":{
@@ -97,6 +99,30 @@ const constantData = {
             showammo:false,
             special: (e) => (Math.random()<0.5),
             spdesc: "50% chance to hit double"
+        },
+        "warhammer":{
+            name:"War Hammer",
+            description:"Heavy damage, can only be used once",
+            damage:125,
+            maxammo:1,
+            usage:1,
+            guardbefore:false,
+            refills:0,
+            startammo:1,
+            showammo:true,
+        },
+        "apple":{
+            name:"Apple",
+            description:"no damage, instead heals you an extra 75%",
+            damage:0,
+            maxammo:1,
+            usage:0,
+            guardbefore:false,
+            refills:1,
+            startammo:1,
+            showammo:true,
+            special: (e) => (e.hp+=75),
+            spdesc: "Heals 75%"
         }
     }
 }

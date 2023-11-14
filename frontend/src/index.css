@@ -44,6 +44,7 @@ button, a{
     color: #440;
     background-color: #ff0;
     border: #000 solid;
+    cursor: pointer;
 }
 a {
     text-align: center;

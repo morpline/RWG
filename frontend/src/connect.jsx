@@ -39,6 +39,18 @@ const Connect = () => {
         console.log("start HandleAction");
         if(data.status=="ended" || recievedData.status=="ended")
             return;
+        if(hp<0) {
+            setMessage("You died, and can't fight.");
+            return;
+        }
+        if(
+            (recievedData.players[0]==data.id)?
+                recievedData.player2hp<0:
+                recievedData.player1hp<0
+        ) {
+            setMessage("You have no opponent!");
+            return;
+        }
         console.log("Switch statement");
         switch (action) {
             case "attack":
@@ -142,8 +154,8 @@ const Connect = () => {
             console.log("Adding damage multiplier 0.75 for armor 0", damage);
         }
         if(data.loadout.armor==1) {
-            damage*=1.1;
-            console.log("Adding damage multiplier 1.1 for armor 1", damage);
+            damage*=1.2;
+            console.log("Adding damage multiplier 1.2 for armor 1", damage);
         }
         if(recievedData.players[0]==data.id) {
             if(recievedData.player2loadout.armor==1) {
@@ -182,7 +194,7 @@ const Connect = () => {
                 damage*=0.75;
             }
             if(recievedData.player2loadout.armor==1) {
-                damage*=1.1;
+                damage*=1.2;
             }
             // setHp(hp-damage);
             recievedData.player2hp-=damage;
@@ -191,11 +203,11 @@ const Connect = () => {
                 damage*=0.75
             }
             if(recievedData.player1loadout.armor==1) {
-                damage*=1.1;
+                damage*=1.2;
             }
             recievedData.player1hp-=damage;
         }
-        setMessage(`They took ${damage} damage!`);
+        setMessage(`They took ${Math.round(damage)} damage!`);
         
         if(recievedData.player1hp<=0 || recievedData.player2hp<=0){
             data.gameStatus="ended";
@@ -240,7 +252,7 @@ const Connect = () => {
                     }
                     break;
                 case "update":
-                    setMessage("They took "+recievedData.message + " damage!");
+                    setMessage("They took "+Math.round(recievedData.message) + " damage!");
                     break;
                 case "guard":
                     setMessage("They are guarding themselves.");
@@ -289,7 +301,7 @@ const Connect = () => {
             <div className="section">
                 <div className="left">
                     <div className="img">(picture of {hp<=0?"dead ":" "}warrior)</div>
-                    <h3>you: {hp}/100</h3>
+                    <h3>you: {Math.round(hp)}/100</h3>
                 </div>
                 <div className="right">
                     <div className="img">(picture of {
@@ -299,11 +311,11 @@ const Connect = () => {
                             recievedData.player1hp<=0
                         )?"dead ":" ":" "
                     }warrior)</div>
-                    {recievedData.players?(<h3>them: {
+                    {recievedData.players?(<h3>them: {Math.round(
                         (recievedData.players[0]==data.id)?
                             recievedData.player2hp:
                             recievedData.player1hp
-                    }/100</h3>):(<h3>...</h3>)}
+                    )}/100</h3>):(<h3>...</h3>)}
                 </div>
 
             </div>

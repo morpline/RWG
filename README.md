@@ -17,7 +17,7 @@ add your repo root folder to the urls within the html file
 
 ### backend
 
-run "npm start" in the directory, then point the frontend to it (connect.jsx, line 25)
+run "npm start" in the directory, then point the frontend to it (connect.jsx, line 25; before building)
 
 ## Game Data
 

@@ -3,10 +3,10 @@ import constantData from '../../constants';
 
 import './App.css'
 function App() {
-  const [armor, setArmor] = useState(0);
-  const [weapon, setWeapon] = useState(0);
-  const [sec, setSec] = useState(2);
   const delfult = JSON.parse(localStorage.getItem("loadout")) || {weapon:"revolver",secondary:"dagger",armor:0};
+  const [armor, setArmor] = useState(delfult.armor);
+  const [weapon, setWeapon] = useState(constantData.weaponNames.indexOf(delfult.weapon));
+  const [sec, setSec] = useState(constantData.weaponNames.indexOf(delfult.secondary));
 
 
   function Ar({varToWatch, setVarFunc, value}) {
@@ -50,13 +50,13 @@ function App() {
       localStorage.setItem("loadout", JSON.stringify({
         weapon: constantData.weaponNames[weapon],armor,secondary: constantData.weaponNames[sec]
       }));
-      
+      window.location.href = "/RWG/play";
     }
     return (
       <>
         <div className="section">
-          <button onClick={handlePlay}>save</button>
-          <a href="/RWG/play">play</a>
+          <button onClick={handlePlay}>Play</button>
+          {/* <a href="/RWG/play">play</a> */}
         </div>
       </>
     )
@@ -99,6 +99,8 @@ function App() {
           <Zz varToWatch={sec} setVarFunc={setSec} value={3}/>
           <Zz varToWatch={sec} setVarFunc={setSec} value={4}/>
           <Zz varToWatch={sec} setVarFunc={setSec} value={5}/>
+          <Zz varToWatch={sec} setVarFunc={setSec} value={6}/>
+          <Zz varToWatch={sec} setVarFunc={setSec} value={7}/>
         </div>
       </div>
       <h1>Descriptions</h1>
